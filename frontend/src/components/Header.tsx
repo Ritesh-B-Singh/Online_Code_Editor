@@ -1,73 +1,52 @@
-import { Grid, Typography, Button } from '@mui/material'
+import { Button } from '@mui/material'
 import { Stack } from '@mui/system'
-import React from 'react'
 import icon from '../assets/images/icon.png'
 
-export default function Header() {
+type HeaderProps = {
+  form: string,
+  setForm:any
+}
+
+const Header: React.FunctionComponent<HeaderProps>=({ form ,setForm })=> {
   return (
     <>
-      <Grid
-        sx={{
-          maxHeight: '100px',
-          borderBottom: '1px solid #e0e0e0',
-          width: '100%'
-        }}
-        alignItems="center"
-        justifyContent={'space-between'}
-        container
-      >
-        <Grid item xs={4}>
-          <Stack direction="row" spacing={2} alignItems="center">
-            <img
-              style={{
-                padding: '10px',
-                marginLeft: '10px'
-              }}
-              src={icon}
-              alt="icon"
-              width={'40px'}
-            />
-            <Typography variant="h3" sx={{ fontSize: '24px' }}>
-              OnlineCode Editor
-            </Typography>
-          </Stack>
-        </Grid>
-        <Grid item xs={4} />
-        <Grid
-          item
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end'
-          }}
-          xs={4}
-        >
-          <Stack
+      <Stack
             sx={{
               p: '10px 20px'
             }}
             direction="row"
-            spacing={2}
+            spacing={4}
             alignItems="center"
           >
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: '#000000'
+            <img
+              style={{
+                padding: '5px',
+                marginLeft: '5px'
               }}
+              src={icon}
+              alt="icon"
+              width={'180px'}
+            />
+            <Button
+              variant={"text"}
+              sx={{
+                color: form === "login"?"#fff":'#6a7080',
+              }}
+              onClick={() => setForm("login")}
             >
               Login
             </Button>
             <Button
-              variant="contained"
+              variant={"text"}
               sx={{
-                backgroundColor: '#000000'
+                color:form === "signup"?"#fff":'#6a7080',
               }}
+              onClick={() => setForm("signup")}
             >
               Signup
             </Button>
           </Stack>
-        </Grid>
-      </Grid>
     </>
   )
 }
+export default Header

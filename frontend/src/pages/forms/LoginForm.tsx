@@ -1,4 +1,3 @@
-import React from 'react'
 import { Form, Formik } from 'formik'
 import {
   Grid,
@@ -21,16 +20,14 @@ export default function LoginForm() {
       <Box
         sx={{
           p: '20px',
-          border: '2px solid #e0e0e0',
-          boxShadow: ' 5px 5px 2px 1px rgba(0, 0, 255, .2)',
-          borderRadius: '10px'
         }}
       >
         <Typography
           variant="h4"
+          color="primary"
           sx={{
             mb: '20px',
-            fontWeight: '600'
+            fontWeight: '500',
           }}
         >
           Login
@@ -49,10 +46,46 @@ export default function LoginForm() {
           <Form>
             <Grid container justifyContent={'center'} spacing={2}>
               <Grid item xs={12}>
-                <TextField fullWidth name={'email'} label={'Enter Email'} />
+                <TextField sx={{
+                  backgroundColor: '#323544',
+                  borderRadius: '15px',
+                  "& .MuiOutlinedInput-root": {
+                    color: '#fff',
+                    "& fieldset": {
+                      borderColor: '#323544',
+                      borderRadius: '15px',
+                    },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: '#323544',
+                  },
+                  },
+                }} InputLabelProps={{
+                  style: {
+                    color: '#fff',
+                  }
+                }} fullWidth name={'email'} label={'Enter Email'} />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                sx={{
+                  backgroundColor: '#323544',
+                  borderRadius: '15px',
+                  "& .MuiOutlinedInput-root": {
+                    color: '#fff',
+                    "& fieldset": {
+                      borderColor: '#323544',
+                      borderRadius: '15px',
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: '#323544',
+                    },
+                  },               
+                }}
+                InputLabelProps={{
+                  style: {
+                    color: '#fff',
+                  }
+                }}
                   fullWidth
                   type="password"
                   name={'password'}
@@ -61,9 +94,9 @@ export default function LoginForm() {
               </Grid>
               <Grid item xs={4}>
                 <Button
+                color='primary'
+                variant='contained'
                   sx={{
-                    backgroundColor: '#000000',
-                    color: '#FFF',
                     '&: hover': {
                         background: '#FFF',
                         color: '#000',
