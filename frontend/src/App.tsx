@@ -1,12 +1,16 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import './App.css'
+import HomeDashboard from './pages/Dashboard/HomeDashboard'
+import SignUpForm from './pages/forms/SignUpForm'
+import HomeLanding from './pages/HomeLanding'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomeLanding />} />
+        <Route path="/home" element={<HomeDashboard />} />
       </Routes>
     </BrowserRouter>
   )
